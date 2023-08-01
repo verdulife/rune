@@ -9,7 +9,7 @@
 
 <a class="col fcenter full" href="/login">
 	<picture>
-		<Logo />
+		<Logo width="100"/>
 	</picture>
 
 	<p class="tcenter wfull">TOCA PARA CONTINUAR</p>
@@ -29,10 +29,9 @@
 
 	p {
 		position: absolute;
-		bottom: 0;
+		bottom: 4em;
 		left: 0;
 		color: var(--accent);
-		padding: 2em;
 	}
 
 	@keyframes fade {

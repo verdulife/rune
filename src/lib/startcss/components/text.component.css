@@ -12,7 +12,7 @@
 /* 🎨 dynamic properties 🎨 */
 
 :--text {
-	--color: var(--base-800);
+	--color: var(--accent);
 }
 
 /* ⚡ startcss reset ⚡ */

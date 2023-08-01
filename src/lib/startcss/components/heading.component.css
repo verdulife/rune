@@ -12,7 +12,7 @@
 /* 🎨 dynamic properties 🎨 */
 
 :--heading {
-	color: var(--base-900);
+	color: var(--base);
 }
 
 /* ⚡ startcss reset ⚡ */
@@ -21,12 +21,6 @@
 	color: var(--color);
 	font-family: var(--font-base);
 	font-weight: normal;
-
-	& strong,
-	& b {
-		font-family: var(--font-title);
-		font-weight: normal;
-	}
 }
 
 h1 {

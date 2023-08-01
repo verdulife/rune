@@ -12,22 +12,10 @@
 /* 🎨 dynamic properties 🎨 */
 
 :--button {
-	--background-color: hsl(var(--alt-hsl), 0.9);
-	--color: var(--base);
-	--border: none;
-	--clip-path: polygon(
-		0.75em 0%,
-		100% 0,
-		100% calc(100% - 0.75em),
-		calc(100% - 0.75em) 100%,
-		0 100%,
-		0 0.75em
-	);
-
-	&:hover,
-	&:focus {
-		--background-color: var(--alt-800);
-	}
+	--background-color: hsl(var(--alt-hsl), 0.7);
+	--color: var(--accent);
+	--border-radius: 10em;
+	--box-shadow: inset 0px 1px 1px 0px hsl(var(--base-hsl), 0.25);
 }
 
 :--button[disabled] {
@@ -49,12 +37,11 @@
 	background-color: var(--background-color);
 	backdrop-filter: blur(1em);
 	color: var(--color);
-	font-family: var(--font-code);
 	font-size: var(--font-xs);
 	text-align: center;
 	text-decoration: none;
-	border: var(--border);
-	clip-path: var(--clip-path);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
 	user-select: none;
 	-webkit-user-drag: none;
 	padding: var(--spacing-md) var(--spacing-2xl);
@@ -72,22 +59,4 @@
 	backdrop-filter: unset;
 	color: var(--color);
 	border: var(--border);
-}
-
-:--button.accent {
-	background-color: hsl(var(--accent-hsl), 1);
-	color: var(--base-900);
-
-	&:hover {
-		background-color: hsl(var(--accent-hsl), 0.6);
-	}
-}
-
-:--button.error {
-	background-color: hsl(var(--error-hsl), 0.2);
-	color: var(--error);
-
-	&:hover {
-		background-color: hsl(var(--error-hsl), 0.3);
-	}
 }
