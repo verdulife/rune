@@ -21,5 +21,6 @@
 		position: absolute;
 		top: 2em;
 		right: 2em;
+		text-transform: uppercase;
 	}
 </style>

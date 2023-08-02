@@ -16,7 +16,7 @@
 	--font-sm: clamp(14px, 3vw, 18px);
 	--font-md: clamp(18px, 4vw, 22px);
 	--font-lg: clamp(22px, 5vw, 26px);
-	--font-xl: clamp(26px, 7vw, 30px);
+	--font-xl: clamp(36px, 7vw, 46px);
 	--font-2xl: clamp(30px, 10vw, 60px);
 	--font-3xl: clamp(40px, 12vw, 80px);
 
