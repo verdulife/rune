@@ -18,7 +18,13 @@
     <a href="/hoy">VER TODO</a>
   </header>
 
-	<section class="scrollbar" horizontal>
+	<section class="scrollbar snap" horizontal>
+		<Card {data} />
+		<Card {data} />
+		<Card {data} />
+		<Card {data} />
+		<Card {data} />
+		<Card {data} />
 		<Card {data} />
 		<Card {data} />
 		<Card {data} />
