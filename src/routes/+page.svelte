@@ -1,15 +1,18 @@
 <script>
 	import { metadata as data } from '$lib/meta';
+	import { Users } from '$lib/stores';
 
 	import Meta from '$components/global/Meta.svelte';
 	import Logo from '$lib/icons/Logo.svelte';
+
+	const redirect = $Users[0]?.name || '/login';
 </script>
 
 <Meta {data} />
 
-<a class="col fcenter full" href="/login">
+<a class="col fcenter full" href={redirect}>
 	<picture>
-		<Logo width="100"/>
+		<Logo width="100" />
 	</picture>
 
 	<p class="tcenter wfull">TOCA PARA CONTINUAR</p>
