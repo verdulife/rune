@@ -7,8 +7,11 @@
 
 	export let data;
 	const user = $Users.find((u) => u.name == data.user);
+	let open = false;
 
-	let top = 100;
+	function togModal() {
+		open = !open;
+	}
 </script>
 
 {#if user}
@@ -18,10 +21,10 @@
 		<CardSlider />
 		<CardSlider />
 
-		<button>+ AÑADIR</button>
+		<button on:click={togModal}>+ AÑADIR</button>
 	</section>
 
-	<Modal {top} />
+	<Modal {open} />
 {:else}
 	<NoUser />
 {/if}
