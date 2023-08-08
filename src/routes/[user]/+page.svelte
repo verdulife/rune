@@ -24,7 +24,7 @@
 		<button on:click={togModal}>+ AÑADIR</button>
 	</section>
 
-	<Modal {open} />
+	<Modal bind:open />
 {:else}
 	<NoUser />
 {/if}
