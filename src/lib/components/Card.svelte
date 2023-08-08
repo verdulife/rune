@@ -21,10 +21,13 @@
 
 <style>
 	article {
+		--squircle-smooth: 1;
+		--squircle-radius: 25px;
+
 		width: 150px;
-		aspect-ratio: 3/4;
+		aspect-ratio: 3/3.5;
 		background-color: hsl(var(--base-hsl), 0.25);
-		border-radius: 2em;
+		mask-image: paint(squircle);
 		padding: 1.5em 1em 1em 1em;
 	}
 

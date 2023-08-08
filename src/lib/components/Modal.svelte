@@ -5,7 +5,12 @@
 
 	let data = {
 		registration: true,
-		weight: 0
+		exercise: '',
+		weight: 0,
+		reps: 4,
+		series: 10,
+		plus: false,
+		fail: false
 	};
 
 	function closeModal() {
@@ -19,6 +24,15 @@
 	function decWeight() {
 		data.weight -= 2.5;
 		if (data.weight < 0) data.weight = 0;
+	}
+
+	function inc(value) {
+		data[value]++;
+	}
+
+	function dec(value) {
+		data[value]--;
+		if (data[value] < 0) data[value] = 0;
 	}
 
 	$: console.log(data);
@@ -78,16 +92,55 @@
 				</datalist>
 			</label>
 
-			<div class="row">
-				<label for="weight">
-					<button on:click={decWeight}>-</button>
-					<input type="number" inputmode="numeric" step="2.5" bind:value={data.weight} readonly />
-					<button on:click={incWeight}>+</button>
+			<label for="weight">
+				<button on:click={decWeight}>-</button>
+				<input
+					type="number"
+					inputmode="numeric"
+					step="2.5"
+					id="weight"
+					bind:value={data.weight}
+					readonly
+				/>
+				<button on:click={incWeight}>+</button>
+			</label>
+			<label for="reps">
+				<button on:click={() => dec('reps')}>-</button>
+				<input
+					type="number"
+					inputmode="numeric"
+					step="2.5"
+					id="reps"
+					bind:value={data.reps}
+					readonly
+				/>
+				<button on:click={() => inc('reps')}>+</button>
+			</label>
+			<label for="series">
+				<button on:click={() => dec('series')}>-</button>
+				<input
+					type="number"
+					inputmode="numeric"
+					step="2.5"
+					id="series"
+					bind:value={data.series}
+					readonly
+				/>
+				<button on:click={() => inc('series')}>+</button>
+			</label>
+
+			<div class="row wfull">
+				<label for="plus">
+					<input type="checkbox" id="plus" bind:checked={data.plus} />
 				</label>
-				<label for="reps" />
-				<label for="series" />
+
+				<label for="fail">
+					<input type="checkbox" id="fail" bind:checked={data.fail} />
+				</label>
 			</div>
 		</main>
+
+		<footer />
 	</section>
 </div>
 
@@ -119,15 +172,18 @@
 	}
 
 	.radio {
-		background-color: hsl(var(--base-900-hsl), 0.6);
+		--squircle-smooth: 1;
+		--squircle-radius: 25px;
+		aspect-ratio: 16/6;
+		background-color: var(--accent);
+		mask-image: paint(squircle);
 		font-size: 12px;
-		color: var(--accent);
-		border-radius: 10em;
-		padding: var(--spacing-md) var(--spacing-2xl);
+		font-weight: bold;
+		color: var(--alt);
 	}
 
 	.radio:has(> input:checked) {
-		box-shadow: inset 0px 1px 2px 0px hsl(var(--base-hsl), 0.25);
+		background-color: Khaki;
 	}
 
 	input::-webkit-outer-spin-button,
