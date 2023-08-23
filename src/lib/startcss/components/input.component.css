@@ -42,7 +42,7 @@ option {
 
 /* ⚡ startcss reset ⚡ */
 
-:--input {
+:--input:not(:--input-ui) {
 	background-color: var(--background-color);
 	border: var(--border);
 	border-radius: 0.2rem;

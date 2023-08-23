@@ -3,10 +3,13 @@
 
 	export let open = false;
 
+	const weekday = new Date().getDay();
+
 	let data = {
 		registration: true,
 		exercise: '',
-		weight: 0,
+		weekday,
+		weight: 2.5,
 		reps: 4,
 		series: 10,
 		plus: false,
@@ -23,7 +26,7 @@
 
 	function decWeight() {
 		data.weight -= 2.5;
-		if (data.weight < 0) data.weight = 0;
+		if (data.weight < 2.5) data.weight = 2.5;
 	}
 
 	function inc(value) {
@@ -32,10 +35,12 @@
 
 	function dec(value) {
 		data[value]--;
-		if (data[value] < 0) data[value] = 0;
+		if (data[value] < 1) data[value] = 1;
 	}
 
-	$: console.log(data);
+	function saveData() {
+		console.log(data);
+	}
 </script>
 
 <div
@@ -46,7 +51,7 @@
 >
 	<section class="col wfull">
 		<header class="col wfull">
-			<p>¿Quieres registrar o programar un entreno?</p>
+			<p>¿Quieres registrar o programar un ejercicio?</p>
 
 			<div class="row wfull">
 				<label class="radio row fcenter grow" for="register">
@@ -58,6 +63,7 @@
 						value={true}
 						bind:group={data.registration}
 						hidden
+						required
 					/>
 				</label>
 
@@ -70,6 +76,7 @@
 						value={false}
 						bind:group={data.registration}
 						hidden
+						required
 					/>
 				</label>
 			</div>
@@ -77,13 +84,14 @@
 
 		<main class="col wfull">
 			<label class="col wfull" for="exercise">
-				NOMBRE DEL EJERCICIO
+				<p>Nombre del ejercicio</p>
 				<input
 					class="wfull"
 					list="exercisesList"
 					type="search"
 					id="exercise"
 					bind:value={data.exercise}
+					required
 				/>
 
 				<datalist id="exercisesList">
@@ -92,55 +100,84 @@
 				</datalist>
 			</label>
 
-			<label for="weight">
-				<button on:click={decWeight}>-</button>
+			{#if !data.registration}
+				<label class="col wfull" for="weekday">
+					<p>¿A que día pertenece este entreno?</p>
+					<select class="wfull" id="weekday" bind:value={data.weekday} required>
+						<option value={1}>LUNES</option>
+						<option value={2}>MARTES</option>
+						<option value={3}>MIÉRCOLES</option>
+						<option value={4}>JUEVES</option>
+						<option value={5}>VIERNES</option>
+						<option value={6}>SÁBADO</option>
+						<option value={0}>DOMINGO</option>
+					</select>
+				</label>
+			{/if}
+
+			<label class="row jbetween wfull" for="weight">
+				<button class="w1/3" on:click={decWeight}>-</button>
 				<input
 					type="number"
 					inputmode="numeric"
 					step="2.5"
 					id="weight"
 					bind:value={data.weight}
-					readonly
+					hidden
+					required
 				/>
-				<button on:click={incWeight}>+</button>
+				<h3>{data.weight}kg</h3>
+				<button class="w1/3" on:click={incWeight}>+</button>
 			</label>
-			<label for="reps">
-				<button on:click={() => dec('reps')}>-</button>
+
+			<label class="row jbetween wfull" for="reps">
+				<button class="w1/3" on:click={() => dec('reps')}>-</button>
 				<input
 					type="number"
 					inputmode="numeric"
 					step="2.5"
 					id="reps"
 					bind:value={data.reps}
-					readonly
+					hidden
+					required
 				/>
-				<button on:click={() => inc('reps')}>+</button>
+				<h3>{data.reps} reps</h3>
+				<button class="w1/3" on:click={() => inc('reps')}>+</button>
 			</label>
-			<label for="series">
-				<button on:click={() => dec('series')}>-</button>
+
+			<label class="row jbetween wfull" for="series">
+				<button class="w1/3" on:click={() => dec('series')}>-</button>
 				<input
 					type="number"
 					inputmode="numeric"
 					step="2.5"
 					id="series"
 					bind:value={data.series}
-					readonly
+					hidden
+					required
 				/>
-				<button on:click={() => inc('series')}>+</button>
+				<h3>{data.series} series</h3>
+				<button class="w1/3" on:click={() => inc('series')}>+</button>
 			</label>
 
-			<div class="row wfull">
-				<label for="plus">
-					<input type="checkbox" id="plus" bind:checked={data.plus} />
-				</label>
+			{#if data.registration}
+				<aside class="row wfull">
+					<label class="radio row fcenter grow" for="plus">
+						PLUS
+						<input type="checkbox" id="plus" bind:checked={data.plus} hidden required/>
+					</label>
 
-				<label for="fail">
-					<input type="checkbox" id="fail" bind:checked={data.fail} />
-				</label>
-			</div>
+					<label class="radio row fcenter grow" for="fail">
+						FALLO
+						<input type="checkbox" id="fail" bind:checked={data.fail} hidden required/>
+					</label>
+				</aside>
+			{/if}
 		</main>
 
-		<footer />
+		<footer class="row jcenter wfull">
+			<button class="w1/2" on:click={saveData}>GUARDAR</button>
+		</footer>
 	</section>
 </div>
 
@@ -163,12 +200,17 @@
 	}
 
 	section {
-		gap: 2em;
+		gap: 1em;
 	}
 
 	header,
-	header > div {
+	header > div,
+	aside {
 		gap: 1em;
+	}
+
+	main {
+		gap: 2em;
 	}
 
 	.radio {
@@ -184,15 +226,5 @@
 
 	.radio:has(> input:checked) {
 		background-color: Khaki;
-	}
-
-	input::-webkit-outer-spin-button,
-	input::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-
-	input[type='number'] {
-		-moz-appearance: textfield;
 	}
 </style>
