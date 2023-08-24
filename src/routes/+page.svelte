@@ -1,49 +1,26 @@
 <script>
-	import { metadata as data } from '$lib/meta';
-	import { Users } from '$lib/stores';
+	import { User } from '$lib/stores';
+	import { days, currentDay } from '$lib/utils';
 
-	import Meta from '$components/global/Meta.svelte';
-	import Logo from '$lib/icons/Logo.svelte';
+	import Header from '$components/Header.svelte';
+	import ProgramSlider from '$components/ProgramSlider.svelte';
+	import RecordsList from '$components/RecordsList.svelte';
 
-	const redirect = $Users[0]?.name || '/login';
+	let displayDay = currentDay;
+
+	$: userDay = $User[displayDay];
+	$: ({ programed, records } = userDay);
 </script>
 
-<Meta {data} />
+<Header bind:displayDay />
 
-<a class="col fcenter full" href={redirect}>
-	<picture>
-		<Logo width="100" />
-	</picture>
-
-	<p class="tcenter wfull">TOCA PARA CONTINUAR</p>
-</a>
+<main class="col wfull">
+	<ProgramSlider {displayDay} {programed} />
+	<RecordsList {records} />
+</main>
 
 <style lang="postcss">
-	a {
-		position: relative;
-		animation: fade 3s ease;
-		animation-delay: 1s;
-		animation-fill-mode: backwards;
-	}
-
-	picture {
-		margin-top: -20%;
-	}
-
-	p {
-		position: absolute;
-		bottom: 4em;
-		left: 0;
-		color: var(--accent);
-	}
-
-	@keyframes fade {
-		0% {
-			opacity: 0;
-		}
-
-		100% {
-			opacity: 1;
-		}
+	main {
+		gap: 2em;
 	}
 </style>
