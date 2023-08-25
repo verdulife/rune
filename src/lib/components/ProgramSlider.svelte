@@ -15,11 +15,11 @@
 	<main class="row wrap wfull">
 		{#if programed.length > 0}
 			{#each programed as program}
-				<Program {program} />
+				<Program {program} bind:showModal />
 			{/each}
 		{/if}
 
-		<Program {displayDay} bind:showModal />
+		<Program bind:showModal />
 	</main>
 </section>
 

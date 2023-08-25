@@ -27,12 +27,4 @@
 
 <body data-sveltekit-preload-data="hover" rounded>
 	<div id="app" style="display: contents">%sveltekit.body%</div>
-
-	<script>
-		if ("paintWorklet" in CSS) {
-			CSS.paintWorklet.addModule(
-				"https://www.unpkg.com/css-houdini-squircle/squircle.min.js"
-			);
-		}
-	</script>
 </body>

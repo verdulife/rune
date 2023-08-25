@@ -1,29 +1,20 @@
 <script>
 	export let program = null;
-	export let showModal;
+	export let showModal = null;
 
-	function openModal(type) {
-		console.log(type);
-		showModal = type;
+	function openModal(value) {
+		showModal = value;
 	}
-
-	/* function deleteExercise() {
-		if (!program) return;
-
-		const { day } = program;
-		const withoutDeleted = $User[day].programed.filter((p) => p !== program);
-		$User[day].programed = withoutDeleted;
-	} */
 </script>
 
 <article class="col">
 	{#if !program}
-		<button class="unset col fcenter full" on:click={() => openModal('add')}>
+		<button class="unset col fcenter full" on:click={() => openModal({})}>
 			<h4>+</h4>
 			<p class="tcenter">añadir ejercicio</p>
 		</button>
 	{:else}
-		<button class="unset col full" on:click={() => openModal('edit')}>
+		<button class="unset col full" on:click={() => openModal(program)}>
 			<header class="col">
 				<small>{program.exercise}</small>
 			</header>
@@ -41,13 +32,10 @@
 
 <style>
 	article {
-		--squircle-smooth: 1;
-		--squircle-radius: 25px;
-
 		width: calc((100% - 0.8em) / 3);
 		aspect-ratio: 3/3.5;
 		background-color: hsl(var(--base-hsl), 0.25);
-		mask-image: paint(squircle);
+		border-radius: 1em;
 		padding: 1.5em 1em 1em 1em;
 	}
 

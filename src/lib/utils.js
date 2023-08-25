@@ -13,14 +13,14 @@ export const days = [
 export const programDefaults = {
   exercise: '',
   day: 0,
-  weight: 2.5,
+  weight: 10,
   reps: 4,
   series: 10,
 };
 
 export const recordDefaults = {
   exercise: '',
-  weight: 2.5,
+  weight: 10,
   reps: 4,
   series: 10,
   plus: false,

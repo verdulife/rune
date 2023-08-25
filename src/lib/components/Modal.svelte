@@ -1,30 +1,17 @@
 <script>
-	import { swipe } from 'svelte-gestures';
-	import { fly } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import AddProgram from '$components/AddProgram.svelte';
 	import EditProgram from '$components/EditProgram.svelte';
 
 	export let displayDay, showModal;
-
-	function closeModal() {
-		showModal = null;
-	}
 </script>
 
 {#if showModal}
-	<div
-		class="modal wfull"
-		class:open={showModal}
-		use:swipe={{ timeframe: 300, minSwipeDistance: 60, touchAction: 'pan-down' }}
-		on:swipe={closeModal}
-		transition:fly
-	>
-		{#if showModal === 'add'}
-			<AddProgram {displayDay} />
-		{/if}
-
-		{#if showModal === 'edit'}
-			<EditProgram />
+	<div class="modal wfull" transition:slide>
+		{#if showModal.exercise}
+			<EditProgram bind:showModal />
+		{:else}
+			<AddProgram {displayDay} bind:showModal />
 		{/if}
 	</div>
 {/if}
