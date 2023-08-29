@@ -1,6 +1,6 @@
 <script>
 	import { User } from '$lib/stores';
-	import { days, currentDay } from '$lib/utils';
+	import { currentDay } from '$lib/utils';
 
 	import Header from '$components/Header.svelte';
 	import ProgramSlider from '$components/ProgramSlider.svelte';

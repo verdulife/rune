@@ -14,16 +14,15 @@ export const programDefaults = {
   exercise: '',
   day: 0,
   weight: 10,
-  reps: 4,
-  series: 10,
+  reps: 10,
+  series: 4,
 };
 
 export const recordDefaults = {
   exercise: '',
   weight: 10,
-  reps: 4,
-  series: 10,
-  plus: false,
+  reps: 10,
+  series: 4,
   fail: false
 };
 
@@ -63,5 +62,10 @@ export const userDefaults = [
     programed: [],
     records: []
   },
+];
+
+export const exercisesList = [
+  "PRESS DE BANCA",
+  "PESO MUERTO"
 ]
 

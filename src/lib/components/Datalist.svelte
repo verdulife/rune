@@ -1,11 +1,6 @@
 <script>
-	export let user, value;
-
-	let rawExercises = [];
-	user.forEach((d) => (rawExercises = [...d.programed, ...rawExercises]));
-
-	const uniqueExercies = [...new Set(rawExercises)];
-	const exercisesList = uniqueExercies.map((e) => e.exercise);
+	import { exercisesList } from '$lib/utils';
+	export let value;
 </script>
 
 <label class="col wfull" for="exercise">
@@ -13,8 +8,8 @@
 	<input class="wfull" list="exercisesList" type="search" id="exercise" bind:value required />
 
 	<datalist id="exercisesList">
-		{#each exercisesList as value}
-			<option {value}>{value}</option>
+		{#each exercisesList as exercise}
+			<option value={exercise}>{exercise}</option>
 		{/each}
 	</datalist>
 </label>

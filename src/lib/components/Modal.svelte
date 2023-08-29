@@ -1,18 +1,13 @@
 <script>
 	import { slide } from 'svelte/transition';
-	import AddProgram from '$components/AddProgram.svelte';
-	import EditProgram from '$components/EditProgram.svelte';
+	import ProgramForm from '$components/ProgramForm.svelte';
 
 	export let displayDay, showModal;
 </script>
 
 {#if showModal}
 	<div class="modal wfull" transition:slide>
-		{#if showModal.exercise}
-			<EditProgram bind:showModal />
-		{:else}
-			<AddProgram {displayDay} bind:showModal />
-		{/if}
+		<ProgramForm {displayDay} bind:showModal />
 	</div>
 {/if}
 
