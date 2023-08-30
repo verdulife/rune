@@ -4,21 +4,32 @@
 	export let records;
 </script>
 
-<section class="col wfull">
+<section class="col full">
 	<header class="row jbetween aend wfull">
-		<h2>Registros</h2>
+		<h3>Registros</h3>
 	</header>
 
-	<main class="scrollbar snap" horizontal>
-		{#if records.length === 0}
-			<p>No hay registros</p>
-		{:else}
-			{#each records as record}
-				<Record {record} />
-			{/each}
-		{/if}
-	</main>
+		<ul class="col wfull">
+			{#if records.length > 0}
+				{#each records as record}
+					<li class="col wfull">
+						<Record {record} />
+					</li>
+				{/each}
+			{:else}
+				<li class="col wfull">
+					<p>No hay registros</p>
+				</li>
+			{/if}
+		</ul>
 </section>
 
 <style lang="postcss">
+	section {
+		gap: 1em;
+	}
+
+	ul {
+		gap: 0.4em;
+	}
 </style>

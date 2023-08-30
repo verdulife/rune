@@ -1,6 +1,11 @@
 <script>
 	import { programDefaults } from '$lib/utils';
-	import { createProgramByDay, updateProgramByData, deleteProgramByData } from '$lib/methods';
+	import {
+		createProgramByDay,
+		updateProgramByData,
+		deleteProgramByData,
+		registerRecord
+	} from '$lib/methods';
 
 	import Incrementer from '$components/Incrementer.svelte';
 	import Datalist from '$components/Datalist.svelte';
@@ -12,15 +17,15 @@
 	export let displayDay, showModal;
 
 	let data = showModal?.id ? showModal : { ...programDefaults };
-	data.day = displayDay;
+	data.day = data.day || displayDay;
 
 	function closeModal() {
 		showModal = null;
 	}
 
 	function saveExercise() {
-		if (!showModal?.id) createProgramByDay({ day: displayDay, data });
-		else updateProgramByData({ data });
+		if (!showModal?.id) createProgramByDay(data);
+		else updateProgramByData(data);
 		closeModal();
 	}
 
@@ -28,7 +33,17 @@
 		const check = confirm('¿Quieres borrar el ejercicio de este día?');
 		if (!check) return;
 
-		deleteProgramByData({ data });
+		deleteProgramByData(data);
+		closeModal();
+	}
+
+	function registerFail() {
+		const check = confirm('¿Quieres registrar fallo en este ejercicio?');
+		if (!check) return;
+
+		data.fail = true;
+
+		registerRecord(data);
 		closeModal();
 	}
 </script>
@@ -47,7 +62,7 @@
 		</button>
 
 		{#if data.id}
-			<button type="button" class="unset col acenter grow">
+			<button type="button" class="unset col acenter grow" on:click={registerFail}>
 				<Alert />
 				<small>FALLO</small>
 			</button>
@@ -58,12 +73,10 @@
 			</button>
 		{/if}
 
-		{#if !data.id}
-			<button type="button" class="unset col acenter grow" on:click={closeModal}>
-				<Back />
-				<small>CERRAR</small>
-			</button>
-		{/if}
+		<button type="button" class="unset col acenter grow" on:click={closeModal}>
+			<Back />
+			<small>CERRAR</small>
+		</button>
 	</footer>
 </form>
 

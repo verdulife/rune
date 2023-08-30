@@ -16,13 +16,6 @@ export const programDefaults = {
   weight: 10,
   reps: 10,
   series: 4,
-};
-
-export const recordDefaults = {
-  exercise: '',
-  weight: 10,
-  reps: 10,
-  series: 4,
   fail: false
 };
 

@@ -21,19 +21,24 @@
 	}
 </script>
 
-<section class="row fcenter wfull">
+<section class="row acenter wfull">
+	<h3>{day}</h3>
 	<button on:click={prevDay}>{'<'}</button>
-	<h1>{day}</h1>
 	<button on:click={nextDay}>{'>'}</button>
 </section>
 
 <style lang="postcss">
 	section {
+		position: sticky;
+		top: 0;
 		gap: 2em;
-		padding: 4em 2em;
+		background-color: hsl(var(--alt-hsl), 0.7);
+		backdrop-filter: blur(1em);
+		padding: 1em 0;
 	}
 
-	h1 {
-		text-transform: uppercase;
+	h3 {
+		text-transform: capitalize;
+		margin-right: auto;
 	}
 </style>

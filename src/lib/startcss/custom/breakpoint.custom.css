@@ -29,5 +29,6 @@
 
 @custom-media --reduced-motion (prefers-reduced-motion: reduce);
 @custom-media --touch (hover: none);
+@custom-media --cursor (hover: hover);
 @custom-media --dark (prefers-color-scheme: dark);
 @custom-media --light (prefers-color-scheme: light);

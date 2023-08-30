@@ -3,7 +3,7 @@
 	import { currentDay } from '$lib/utils';
 
 	import Header from '$components/Header.svelte';
-	import ProgramSlider from '$components/ProgramSlider.svelte';
+	import ProgramList from '$components/ProgramList.svelte';
 	import RecordsList from '$components/RecordsList.svelte';
 
 	let displayDay = currentDay;
@@ -14,8 +14,8 @@
 
 <Header bind:displayDay />
 
-<main class="col wfull">
-	<ProgramSlider {displayDay} {programed} />
+<main class="col full">
+	<ProgramList {displayDay} {programed} />
 	<RecordsList {records} />
 </main>
 
