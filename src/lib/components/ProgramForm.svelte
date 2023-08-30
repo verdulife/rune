@@ -5,6 +5,9 @@
 	import Incrementer from '$components/Incrementer.svelte';
 	import Datalist from '$components/Datalist.svelte';
 	import Trash from '$components/icons/Trash.svelte';
+	import Save from '$components/icons/Save.svelte';
+	import Alert from '$components/icons/Alert.svelte';
+	import Back from '$components/icons/Back.svelte';
 
 	export let displayDay, showModal;
 
@@ -37,16 +40,29 @@
 	<Incrementer id="reps" bind:value={data.reps} />
 	<Incrementer id="series" bind:value={data.series} />
 
-	{#if data.id}
-		<button type="button" class="wfull">REGISTRAR FALLO</button>
-	{/if}
-
 	<footer class="row fcenter wfull">
-		<button type="submit">GUARDAR</button>
-		<button type="button" on:click={closeModal}>CANCERLAR</button>
+		<button type="submit" class="unset col acenter grow">
+			<Save />
+			<small>GUARDAR</small>
+		</button>
 
 		{#if data.id}
-			<button type="button" class="unset" on:click={deleteExercise}><Trash /></button>
+			<button type="button" class="unset col acenter grow">
+				<Alert />
+				<small>FALLO</small>
+			</button>
+
+			<button type="button" class="unset col acenter grow" on:click={deleteExercise}>
+				<Trash />
+				<small>BORRAR</small>
+			</button>
+		{/if}
+
+		{#if !data.id}
+			<button type="button" class="unset col acenter grow" on:click={closeModal}>
+				<Back />
+				<small>CERRAR</small>
+			</button>
 		{/if}
 	</footer>
 </form>
@@ -57,6 +73,13 @@
 	}
 
 	footer {
-		gap: 1em;
+		background-color: hsl(var(--alt-hsl), 0.7);
+		border-radius: 2em;
+		box-shadow: inset 0px 1px 2px 0px hsl(var(--base-hsl), 0.25);
+		padding: var(--spacing-md);
+
+		& button {
+			gap: 0.5em;
+		}
 	}
 </style>
