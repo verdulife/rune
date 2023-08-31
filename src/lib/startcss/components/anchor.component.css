@@ -7,32 +7,21 @@
 
 */
 
-/* 🎨 dynamic properties 🎨 */
+/* ⚡ startcss reset ⚡ */
 
 a {
 	text-decoration: none;
-	color: var(--base-800);
-}
 
-a[rel] {
-	--text-decoration: underline;
+	&[rel] {
+		text-decoration: underline;
 
-	&:hover,
-	&:focus {
-		--text-decoration: none;
-	}
+		&:hover,
+		&:focus {
+			text-decoration: none;
 
-	@media (--touch) {
-		--text-decoration: underline;
-	}
-}
-
-/* ⚡ startcss reset ⚡ */
-
-a[rel] {
-	text-decoration: var(--text-decoration);
-
-	& * {
-		text-decoration: none !important;
+			@media (--touch) {
+				text-decoration: underline;
+			}
+		}
 	}
 }

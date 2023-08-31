@@ -1,25 +1,4 @@
-.xdiv {
-	width: 100%;
-	height: 1px;
-	display: flex;
-}
-.ydiv {
-	width: 1px;
-	height: 100%;
-	display: flex;
-}
-
-@each $media in sm, md, lg, xl, 2xl {
-	@media (--$(media)) {
-		.xdiv\@$(media) {
-			width: 100%;
-			height: 1px;
-			display: flex;
-		}
-		.ydiv\@$(media) {
-			width: 1px;
-			height: 100%;
-			display: flex;
-		}
-	}
+hr {
+	border-width: 1px 1px 0 0;
+	border-style: solid;
 }

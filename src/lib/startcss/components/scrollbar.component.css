@@ -7,33 +7,28 @@
 
 */
 
-/* 🎨 dynamic properties 🎨 */
+/* ⚡ startcss reset ⚡ */
 
-.scrollbar {
-	--width: 20px;
-	--background-color: var(--base-900);
-	
+::-webkit-scrollbar {
+	width: 1em;
+	background-color: transparent;
+
 	@media (--touch) {
-		--width: 0;
+		width: 0;
 	}
 }
 
-/* ⚡ startcss reset ⚡ */
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
 
-.scrollbar {
-	&::-webkit-scrollbar {
-		width: var(--width);
-		background-color: transparent;
-	}
+::-webkit-scrollbar-thumb {
+	background-color: var(--base-900);
+	background-clip: padding-box;
+	border: 0.25em solid transparent;
+	border-radius: 0;
 
-	&::-webkit-scrollbar-track {
-		background-color: transparent;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--background-color);
-		background-clip: padding-box;
-		border: 6px solid transparent;
-		border-radius: var(--width);
+	@media (--dark) {
+		background-color: var(--base);
 	}
 }

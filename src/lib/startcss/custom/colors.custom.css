@@ -10,11 +10,11 @@
 /* 🎨 custom properties 🎨 */
 
 :root {
-	--base: hsl(0, 0%, 98%);
-	--accent: hsl(0, 0%, 50%);
-	--alt: hsl(0, 0%, 0%);
-	--info: hsl(224, 74%, 45%);
-	--success: hsl(116, 46%, 49%);
+	--base: #fafafa;
+	--accent: teal;
+	--alt: skyblue;
+	--info: #1e4bc8;
+	--success: #4bb643;
 	--warning: hsl(28, 100%, 50%);
 	--error: hsl(342, 90%, 42%);
 }
@@ -23,22 +23,10 @@
 
 :root {
 	@each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
-		--base-hsl: 0, 0%, 98%;
+		--base-$(i)00: color-mix(var(--base) calc(100% - $(i) * 10%), #000);
+	}
+
+	/* @each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
 		--base-$(i)00: hsl(0, 0%, calc(100% - $(i) * 10%));
-		--base-$(i)00-hsl: 0, 0%, calc(100% - $(i) * 10%);
-	}
-
-	@each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
-		--accent-hsl: 0, 0%, 50%;
-		--accent-$(i)00: hsl(44, 100%, calc(100% - $(i) * 10%));
-		--accent-$(i)00-hsl: 44, 100%, calc(100% - $(i) * 10%);
-	}
-
-	@each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
-		--alt-hsl: 0, 0%, 0%;
-		--alt-$(i)00: hsl(218, 88%, calc(100% - $(i) * 10%));
-		--alt-$(i)00-hsl: 218, 88%, calc(100% - $(i) * 10%);
-	}
-
-	--error-hsl: 342, 90%, 42%;
+	} */
 }

@@ -7,19 +7,6 @@
 
 */
 
-/* 🎨 dynamic properties 🎨 */
-
-body {
-	--background: var(--alt);
-	--color: var(--base);
-	--border-radius: 0;
-}
-
-::selection {
-	--background-color: var(--base);
-	--color: var(--alt);
-}
-
 /* ⚡ startcss reset ⚡ */
 
 *,
@@ -50,30 +37,34 @@ body {
 html,
 body {
 	height: 100%;
-	height: 100svh;
+	height: 100dvh;
 	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 html {
 	min-height: calc(100% + var(--safe-top));
-	min-height: calc(100svh + var(--safe-top));
+	min-height: calc(100dvh + var(--safe-top));
 	background-color: #000;
 }
 
 body {
-	background: var(--background);
-	color: var(--color);
+	background-color: var(--base);
+	color: var(--base);
 	font-family: var(--font-base);
 	font-size: 100%;
 	vertical-align: baseline;
 
+	@media (--dark) {
+		background-color: transparent;
+	}
+
 	&[rounded] {
-		border-radius: var(--border-radius);
+		border-radius: 0.5em;
 	}
 }
 
-ul,
-li {
+ul {
 	list-style: none;
 }
 
@@ -91,6 +82,11 @@ textarea {
 }
 
 ::selection {
-	background-color: var(--background-color);
-	color: var(--color);
+	background-color: var(--base-900);
+	color: var(--base);
+
+	@media (--dark) {
+		background-color: var(--base);
+		color: var(--base-900);
+	}
 }

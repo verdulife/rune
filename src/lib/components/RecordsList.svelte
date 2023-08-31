@@ -9,19 +9,19 @@
 		<h3>Registros</h3>
 	</header>
 
-		<ul class="col wfull">
-			{#if records.length > 0}
-				{#each records as record}
-					<li class="col wfull">
-						<Record {record} />
-					</li>
-				{/each}
-			{:else}
+	<ul class="col wfull">
+		{#if records.length > 0}
+			{#each records as record}
 				<li class="col wfull">
-					<p>No hay registros</p>
+					<Record {record} />
 				</li>
-			{/if}
-		</ul>
+			{/each}
+		{:else}
+			<li class="col wfull">
+				<p>No hay registros</p>
+			</li>
+		{/if}
+	</ul>
 </section>
 
 <style lang="postcss">

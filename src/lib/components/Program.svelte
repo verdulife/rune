@@ -34,7 +34,7 @@
 	article {
 		width: calc((100% - 0.8em) / 3);
 		aspect-ratio: 3/3.5;
-		background-color: hsl(var(--base-hsl), 0.25);
+		background-color: rgb(from var(--base) r g b 50%);
 		border-radius: 1em;
 		padding: 1.5em 1em 1em 1em;
 	}
