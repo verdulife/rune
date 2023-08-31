@@ -1,0 +1,44 @@
+/* 
+          __             __                
+    _____/ /_____ ______/ /________________
+   / ___/ __/ __ `/ ___/ __/ ___/ ___/ ___/
+  (__  ) /_/ /_/ / /  / /_/ /__(__  |__  ) 
+ /____/\__/\__,_/_/   \__/\___/____/____/  v0.0.1 
+
+*/
+
+/* 🎨 custom properties 🎨 */
+
+:root {
+	--base-h: 0;
+	--base-s: 0%;
+	--base-l: 100%;
+	--base-hsl: var(--base-h), var(--base-s), var(--base-l);
+	--base: hsl(var(--base-hsl));
+
+	--accent-h: 224;
+	--accent-s: 74%;
+	--accent-l: 45%;
+	--accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+	--accent: hsl(var(--accent-hsl));
+
+	--info-hsl: 224, 74%, 45%;
+	--info: hsl(var(--info-hsl));
+
+	--success-hsl: 116, 46%, 49%;
+	--success: hsl(var(--success-hsl));
+
+	--warning-hsl: 28, 100%, 50%;
+	--warning: hsl(var(--warning--hsl));
+
+	--error-hsl: 342, 90%, 42%;
+	--error: hsl(var(--error-hsl));
+
+	@each $i in 1, 2, 3, 4, 5, 6, 7, 8, 9 {
+		--base-$(i)00-hsl: var(--base-h), var(--base-s), calc(100% - $(i) * 11.11%);
+		--base-$(i)00: hsl(var(--base-h), var(--base-s), calc(100% - $(i) * 11.11%));
+
+		--accent-$(i)00-hsl: var(--accent-h), var(--accent-s), calc(100% - $(i) * 10%);
+		--accent-$(i)00: hsl(var(--accent-h), var(--accent-s), calc(100% - $(i) * 10%));
+	}
+}

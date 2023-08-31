@@ -7,15 +7,11 @@
 
 */
 
-/* 🎨 custom properties 🎨 */
-
-@import './custom/breakpoint.custom.css';
-@import './custom/colors.custom.css';
-@import './custom/fontsize.custom.css';
-@import './custom/fontfamily.custom.css';
-@import './custom/spacing.custom.css';
-
 /* ⚡ startcss reset ⚡ */
+
+@import './custom/media.custom.css';
+@import './custom/color.custom.css';
+@import './custom/font.custom.css';
 
 @import './components/base.component.css';
 @import './components/scrollbar.component.css';
@@ -26,4 +22,9 @@
 @import './components/input.component.css';
 @import './components/media.component.css';
 
-@import './layout/layout.css';
+@import './layout/scroll.layout.css';
+@import './layout/direction.layout.css';
+@import './layout/alignment.layout.css';
+@import './layout/sizing.layout.css';
+@import './layout/dividers.layout.css';
+@import './layout/text.layout.css';

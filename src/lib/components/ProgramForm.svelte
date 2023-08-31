@@ -86,11 +86,14 @@
 	}
 
 	footer {
-		background-color: hsl(var(--alt-hsl), 0.7);
+		background-color: hsl(var(--base-hsl), 0.7);
 		border-radius: 2em;
-		box-shadow: inset 0px 1px 2px 0px hsl(var(--base-hsl), 0.25);
-		padding: var(--spacing-md);
-
+		padding: 1em;
+		
+		@media (--dark){
+			background-color: hsl(var(--base-900-hsl), 0.7);
+		}
+ 
 		& button {
 			gap: 0.5em;
 		}

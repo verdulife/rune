@@ -32,9 +32,13 @@
 		position: sticky;
 		top: 0;
 		gap: 2em;
-		background-color: hsl(var(--alt-hsl), 0.7);
+		background-color: hsl(var(--base-hsl), 0.7);
 		backdrop-filter: blur(1em);
 		padding: 1em 0;
+
+		@media (--dark) {
+			background-color: hsl(var(--base-900-hsl), 0.7);
+		}
 	}
 
 	h3 {

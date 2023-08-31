@@ -4,13 +4,7 @@ import postcssEach from 'postcss-each';
 const config = {
   plugins: [
     postcssEach(),
-    postcssPresetEnv({
-      features: {
-        'nesting-rules': true,
-        'custom-properties': true,
-        'custom-selectors': true
-      }
-    })
+    postcssPresetEnv({ stage: 0 })
   ]
 };
 

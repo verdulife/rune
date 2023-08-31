@@ -34,13 +34,13 @@
 	article {
 		width: calc((100% - 0.8em) / 3);
 		aspect-ratio: 3/3.5;
-		background-color: rgb(from var(--base) r g b 50%);
+		background-color: var(--accent);
 		border-radius: 1em;
 		padding: 1.5em 1em 1em 1em;
 	}
 
 	small:last-of-type {
-		color: var(--alt);
+		color: var(--accent-200);
 	}
 
 	main {
@@ -53,7 +53,7 @@
 
 	h4,
 	p {
-		color: var(--alt);
+		color: var(--accent-200);
 		font-size: var(--font-md);
 		line-height: 1;
 	}

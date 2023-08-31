@@ -45,18 +45,14 @@ body {
 html {
 	min-height: calc(100% + var(--safe-top));
 	min-height: calc(100dvh + var(--safe-top));
-	background-color: #000;
+	background-color: var(--base-900);
 }
 
 body {
 	background-color: var(--base);
-	color: var(--base);
-	font-family: var(--font-base);
-	font-size: 100%;
-	vertical-align: baseline;
 
 	@media (--dark) {
-		background-color: transparent;
+		background-color: var(--base-900);
 	}
 
 	&[rounded] {
@@ -71,22 +67,4 @@ ul {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
-select {
-	appearance: none;
-}
-
-textarea {
-	resize: none;
-}
-
-::selection {
-	background-color: var(--base-900);
-	color: var(--base);
-
-	@media (--dark) {
-		background-color: var(--base);
-		color: var(--base-900);
-	}
 }

@@ -15,6 +15,11 @@
 	--media-lg: 1024px;
 	--media-xl: 1280px;
 	--media-xxl: 1536px;
+
+	--safe-top: env(safe-area-inset-top);
+	--safe-right: env(safe-area-inset-right);
+	--safe-bottom: env(safe-area-inset-bottom);
+	--safe-left: env(safe-area-inset-left);
 }
 
 @custom-media --sm (width <= 640px);
@@ -25,10 +30,8 @@
 @custom-media --portrait (orientation: portrait);
 @custom-media --landscape (orientation: landscape);
 
-/* ⚡ startcss reset ⚡ */
-
 @custom-media --reduced-motion (prefers-reduced-motion: reduce);
-@custom-media --touch (hover: none);
-@custom-media --cursor (hover: hover);
 @custom-media --dark (prefers-color-scheme: dark);
 @custom-media --light (prefers-color-scheme: light);
+@custom-media --touch (hover: none);
+@custom-media --cursor (hover: hover);
