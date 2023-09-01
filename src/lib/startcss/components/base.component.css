@@ -43,13 +43,13 @@ body {
 }
 
 html {
-	min-height: calc(100% + var(--safe-top));
 	min-height: calc(100dvh + var(--safe-top));
 	background-color: var(--base-900);
 }
 
 body {
 	background-color: var(--base);
+	padding: var(--safe-padding);
 
 	@media (--dark) {
 		background-color: var(--base-900);
