@@ -34,7 +34,7 @@
 		gap: 2em;
 		background-color: hsl(var(--base-hsl), 0.7);
 		backdrop-filter: blur(1em);
-		padding: 1em 0;
+		padding: calc(var(--safe-top) + 1em) 0 1em 0;
 
 		@media (--dark) {
 			background-color: hsl(var(--base-900-hsl), 0.7);
