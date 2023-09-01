@@ -1,0 +1,13 @@
+{
+  "plugins": {
+    "@csstools/postcss-global-data": {
+      "files": [
+        "src/lib/startcss/custom/media.custom.css"
+      ]
+    },
+    "postcss-each": {},
+    "postcss-preset-env": {
+      "stage": 0
+    }
+  }
+}

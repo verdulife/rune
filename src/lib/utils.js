@@ -19,6 +19,12 @@ export const programDefaults = {
   fail: false
 };
 
+export const record_states = {
+  created: "created",
+  updated: "updated",
+  deleted: "deleted",
+}
+
 export const userDefaults = [
   {
     day: days[0],

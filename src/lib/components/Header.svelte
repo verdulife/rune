@@ -3,13 +3,13 @@
 
 	export let displayDay;
 
-	const lastDay = days.length - 1;
+	const lastDay = days.length;
 	$: day = days[displayDay];
 
 	function prevDay() {
 		const prevDay = displayDay - 1;
 
-		if (prevDay < 0) displayDay = lastDay;
+		if (prevDay < 0) displayDay = lastDay - 1;
 		else displayDay--;
 	}
 

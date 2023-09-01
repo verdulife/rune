@@ -1,4 +1,5 @@
 import { User } from "$lib/stores";
+import { record_states } from "./utils";
 
 function serialize(obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -9,6 +10,7 @@ export function registerRecord(data) {
 
   const record = serialize(data);
   record.date = new Date().toJSON();
+  record.state = record_states.updated;
 
   User.update(userDay => {
     const { day } = record;
@@ -32,7 +34,7 @@ export function createProgramByDay(data) {
     return userDay;
   });
 
-  program.state = "created";
+  program.state = record_states.created;
   registerRecord(program);
 }
 
@@ -50,7 +52,7 @@ export function updateProgramByData(data) {
     return userDay;
   });
 
-  program.state = "updated";
+  program.state = record_states.updated;
   registerRecord(program);
 }
 
@@ -68,6 +70,6 @@ export function deleteProgramByData(data) {
     return userDay;
   });
 
-  program.state = "deleted";
+  program.state = record_states.deleted;
   registerRecord(program);
 };
