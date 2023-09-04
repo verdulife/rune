@@ -50,6 +50,7 @@ html {
 body {
 	background-color: var(--base);
 	padding: 0 var(--safe-right) var(--safe-bottom) var(--safe-left);
+	touch-action: pan-x pan-y;
 
 	@media (--dark) {
 		background-color: var(--base-900);
