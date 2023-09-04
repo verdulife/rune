@@ -1,8 +1,8 @@
 {
-  "background_color": "#d9d9d9",
-  "theme_color": "#b45058",
-  "name": "verdu™",
-  "short_name": "verdu™",
+  "background_color": "#000000",
+  "theme_color": "#1e4bc8",
+  "name": "Rune™",
+  "short_name": "Rune™",
   "display": "standalone",
   "start_url": "/",
   "icons": [

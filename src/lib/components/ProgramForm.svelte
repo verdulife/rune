@@ -1,5 +1,5 @@
 <script>
-	import { programDefaults } from '$lib/utils';
+	import { programDefaults, record_states } from '$lib/utils';
 	import {
 		createProgramByDay,
 		updateProgramByData,
@@ -33,6 +33,7 @@
 		const check = confirm('¿Quieres borrar el ejercicio de este día?');
 		if (!check) return;
 
+		data.state = record_states.deleted;
 		deleteProgramByData(data);
 		closeModal();
 	}
@@ -42,6 +43,7 @@
 		if (!check) return;
 
 		data.fail = true;
+		data.state = record_states.updated;
 
 		registerRecord(data);
 		closeModal();
@@ -89,11 +91,11 @@
 		background-color: hsl(var(--base-hsl), 0.7);
 		border-radius: 2em;
 		padding: 1em;
-		
-		@media (--dark){
+
+		@media (--dark) {
 			background-color: hsl(var(--base-900-hsl), 0.7);
 		}
- 
+
 		& button {
 			gap: 0.5em;
 		}

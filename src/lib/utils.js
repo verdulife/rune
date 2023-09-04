@@ -10,6 +10,17 @@ export const days = [
   "sábado",
 ];
 
+export function formatDate(date) {
+  const options = {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+  };
+
+  const valid = new Date(date);
+  return new Intl.DateTimeFormat("es-ES", options).format(valid);
+}
+
 export const programDefaults = {
   exercise: '',
   day: 0,
@@ -23,6 +34,13 @@ export const record_states = {
   created: "created",
   updated: "updated",
   deleted: "deleted",
+}
+
+export const state_labels = {
+  created: "CREADO",
+  name: "NOMBRE ACTUALIZADO",
+  fail: "FALLO",
+  deleted: "ELIMINADO"
 }
 
 export const userDefaults = [

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "verdu™",
-  sufix: "Starter template",
+  title: "Rune™",
+  sufix: "Gym bro app",
   description: "",
   keywords: "",
   card_image: "/card.png"

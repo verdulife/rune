@@ -10,7 +10,7 @@ export function registerRecord(data) {
 
   const record = serialize(data);
   record.date = new Date().toJSON();
-  record.state = record_states.updated;
+  record.fail = record.fail || false;
 
   User.update(userDay => {
     const { day } = record;
@@ -70,6 +70,5 @@ export function deleteProgramByData(data) {
     return userDay;
   });
 
-  program.state = record_states.deleted;
   registerRecord(program);
 };

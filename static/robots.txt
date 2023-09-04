@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://www.simplementewear.com/sitemap.xml
+Sitemap: /sitemap.xml

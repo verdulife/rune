@@ -21,6 +21,7 @@
 	
 	@media (--dark) {
 		background-color: var(--base-900);
+		color: var(--base);
 		border: 1px solid var(--base-800);
 	}
 	
