@@ -25,14 +25,14 @@
 	.modal {
 		position: fixed;
 		bottom: 0;
-		background-color: hsl(var(--base-hsl), 0.75);
+		background-color: hsl(var(--base-hsl), 0.5);
 		backdrop-filter: blur(1em);
-		border-radius: 3em 3em 0 0;
+		border-radius: 2em 2em 0 0;
 		padding: 4em 2em 2em 2em;
 		z-index: 1;
 
 		@media (--dark) {
-			background-color: hsl(var(--base-900-hsl), 0.75);
+			background-color: hsl(var(--base-900-hsl), 0.5);
 		}
 	}
 </style>

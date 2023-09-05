@@ -8,13 +8,16 @@ function serialize(obj) {
 export function registerRecord(data) {
   if (!data) return;
 
+
   const record = serialize(data);
   record.date = new Date().toJSON();
   record.fail = record.fail || false;
 
   User.update(userDay => {
     const { day } = record;
-    userDay[day].records = [record, ...userDay[day].records]
+    let { records } = userDay[day];
+
+    records = [record, ...records];
 
     return userDay;
   });
@@ -29,7 +32,7 @@ export function createProgramByDay(data) {
 
   User.update(userDay => {
     const { day } = program;
-    userDay[day].programed = [...userDay[day].programed, program]
+    userDay[day].programed = [...userDay[day].programed, program];
 
     return userDay;
   });

@@ -88,13 +88,9 @@
 	}
 
 	footer {
-		background-color: hsl(var(--base-hsl), 0.7);
-		border-radius: 2em;
+		background-color: var(--accent);
+		border-radius: 1em;
 		padding: 1em;
-
-		@media (--dark) {
-			background-color: hsl(var(--base-900-hsl), 0.7);
-		}
 
 		& button {
 			gap: 0.5em;

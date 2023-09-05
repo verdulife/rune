@@ -4,7 +4,10 @@
 	export let displayDay;
 
 	const lastDay = days.length;
+
 	$: day = days[displayDay];
+	$: prev_day = days[displayDay - 1] || days[days.length - 1];
+	$: next_day = days[displayDay + 1] || days[0];
 
 	function prevDay() {
 		const prevDay = displayDay - 1;
@@ -21,10 +24,10 @@
 	}
 </script>
 
-<section class="row acenter wfull">
+<section class="row jbetween acenter wfull">
+	<button on:click={prevDay}>{prev_day}</button>
 	<h3>{day}</h3>
-	<button on:click={prevDay}>{'<'}</button>
-	<button on:click={nextDay}>{'>'}</button>
+	<button on:click={nextDay}>{next_day}</button>
 </section>
 
 <style lang="postcss">
@@ -32,17 +35,25 @@
 		position: sticky;
 		top: 0;
 		gap: 2em;
-		background-color: hsl(var(--base-hsl), 0.7);
+		background-color: hsl(var(--base-hsl), 0.5);
 		backdrop-filter: blur(1em);
-		padding: calc(var(--safe-top) + 1em) 0 1em 0;
+		padding: 1em;
+		padding-top: calc(var(--safe-top) + 1em);
 
 		@media (--dark) {
-			background-color: hsl(var(--base-900-hsl), 0.7);
+			background-color: hsl(var(--base-900-hsl), 0.5);
 		}
 	}
 
 	h3 {
 		text-transform: capitalize;
-		margin-right: auto;
+	}
+
+	button {
+		width: 90px;
+		font-size: var(--font-2xs);
+		font-weight: bold;
+		text-transform: uppercase;
+		padding: 0.75em 1.5em;
 	}
 </style>

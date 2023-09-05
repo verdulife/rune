@@ -22,6 +22,10 @@
 <Modal {displayDay} bind:showModal />
 
 <style lang="postcss">
+	section {
+		padding: 1em 0;
+	}
+
 	main {
 		gap: 0.4em;
 	}

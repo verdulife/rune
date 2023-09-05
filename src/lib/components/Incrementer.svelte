@@ -1,4 +1,7 @@
 <script>
+	import Minus from '$components/icons/Minus.svelte';
+	import Plus from '$components/icons/Plus.svelte';
+
 	export let id, value;
 	const lib = {
 		reps: { amount: 1, unit: 'reps' },
@@ -19,7 +22,13 @@
 </script>
 
 <label class="row jbetween acenter wfull" for={id}>
-	<button type="button" class="w1/4" on:click={decrease}>-</button>
+	<button type="button" class="unset w1/4" on:click={decrease}>
+		<Minus />
+	</button>
+
 	<h3>{value} {unit}</h3>
-	<button type="button" class="w1/4" on:click={increase}>+</button>
+
+	<button type="button" class="unset w1/4" on:click={increase}>
+		<Plus />
+	</button>
 </label>

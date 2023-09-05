@@ -29,7 +29,15 @@
 		gap: 1em;
 	}
 
+	header {
+		padding: 1em;
+	}
+
 	ul {
 		gap: 0.4em;
+	}
+
+	li {
+		padding: 1em;
 	}
 </style>

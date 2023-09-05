@@ -38,7 +38,8 @@ export const record_states = {
 
 export const state_labels = {
   created: "CREADO",
-  name: "NOMBRE ACTUALIZADO",
+  name: "RENOMBRADO",
+  updated: "PLUS",
   fail: "FALLO",
   deleted: "ELIMINADO"
 }
