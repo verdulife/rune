@@ -1,10 +1,6 @@
 <script>
 	import Program from '$components/Program.svelte';
-	import Modal from '$components/Modal.svelte';
-
-	export let displayDay, programed;
-
-	$: showModal = null;
+	export let programed, showModal;
 </script>
 
 <section class="col wfull">
@@ -18,8 +14,6 @@
 		<Program bind:showModal />
 	</main>
 </section>
-
-<Modal {displayDay} bind:showModal />
 
 <style lang="postcss">
 	section {

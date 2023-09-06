@@ -7,6 +7,7 @@
 	import Header from '$components/Header.svelte';
 	import ProgramList from '$components/ProgramList.svelte';
 	import RecordsList from '$components/RecordsList.svelte';
+	import Modal from '$components/Modal.svelte';
 
 	export let data;
 	const { origin } = data;
@@ -14,6 +15,7 @@
 
 	$: userDay = $User[displayDay];
 	$: ({ programed, records } = userDay);
+	$: showModal = null;
 </script>
 
 <Meta {metadata} {origin} />
@@ -21,9 +23,11 @@
 <Header bind:displayDay />
 
 <main class="col full">
-	<ProgramList {displayDay} {programed} />
+	<ProgramList {programed} bind:showModal />
 	<RecordsList {records} />
 </main>
+
+<Modal {displayDay} bind:showModal />
 
 <style lang="postcss">
 	main {
