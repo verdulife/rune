@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Rune™",
-  sufix: "Gym bro app",
+  title: "Gymmy™",
+  sufix: "The Gym Bro",
   description: "",
   keywords: "",
   card_image: "/card.png"

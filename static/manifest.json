@@ -1,8 +1,8 @@
 {
   "background_color": "#000000",
   "theme_color": "#000000",
-  "name": "Rune™",
-  "short_name": "Rune™",
+  "name": "Gymmy™",
+  "short_name": "Gymmy™",
   "display": "standalone",
   "start_url": "/",
   "icons": [
