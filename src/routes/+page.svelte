@@ -8,6 +8,7 @@
 	import ProgramList from '$components/ProgramList.svelte';
 	import RecordsList from '$components/RecordsList.svelte';
 	import Modal from '$components/Modal.svelte';
+	/* import Nav from '$components/Nav.svelte'; */
 
 	export let data;
 	const { origin } = data;
@@ -26,6 +27,8 @@
 	<ProgramList {programed} bind:showModal />
 	<RecordsList {records} />
 </main>
+
+<!-- <Nav /> -->
 
 <Modal {displayDay} bind:showModal />
 

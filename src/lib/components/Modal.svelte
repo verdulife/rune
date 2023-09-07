@@ -32,7 +32,7 @@
 		z-index: 1;
 		
 		@media (--dark) {
-			background-color: var(--base-900);
+			background-color: var(--base-800);
 			border-color: var(--base-700);
 		}
 	}

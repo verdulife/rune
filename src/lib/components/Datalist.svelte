@@ -4,8 +4,15 @@
 </script>
 
 <label class="col wfull" for="exercise">
-	<h3>Nombre del ejercicio</h3>
-	<input class="wfull" list="exercisesList" type="search" id="exercise" bind:value required />
+	<p>Nombre del ejercicio</p>
+	<input
+		class="wfull"
+		list="exercisesList"
+		type="search"
+		id="exercise"
+		bind:value
+		required
+	/>
 
 	<datalist id="exercisesList">
 		{#each exercisesList as exercise}
@@ -21,7 +28,8 @@
 		text-transform: uppercase;
 	}
 
-	h3 {
-		padding: 0.5em;
+	p {
+		color: var(--base-400);
+		padding: 0.5em 1em;
 	}
 </style>

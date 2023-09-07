@@ -82,8 +82,22 @@ export const userDefaults = [
   },
 ];
 
+export const exercise_lib = {
+  reps: { min: 1, step: 1, unit: 'reps' },
+  series: { min: 1, step: 1, unit: 'series' },
+  weight: { min: 0, step: 5, unit: 'kg' }
+}
+
 export const exercisesList = [
+  "PESO MUERTO",
+  "FEMORAL TUMBADO",
+  "YUGO",
   "PRESS DE BANCA",
-  "PESO MUERTO"
+  "JALON AL PECHO",
+  "PRESS MAQUINA",
+  "GIRONDA",
+  "EXTENSIONES CUADRICEPS",
+  "PRENSA",
+  "SENTADILLA LIBRE"
 ]
 

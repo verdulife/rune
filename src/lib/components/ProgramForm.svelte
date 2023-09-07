@@ -94,7 +94,7 @@
 	}
 
 	footer {
-		background-color: var(--accent);
+		background-color: var(--base-700);
 		border-radius: 1em;
 		padding: 1em;
 

@@ -5,9 +5,9 @@
 </script>
 
 {#if records.length > 0}
-	<section class="col full">
-		<header class="row jbetween aend wfull">
-			<h3>Registros</h3>
+	<section class="col acenter full">
+		<header class="row">
+			<p><small>REGISTRO</small></p>
 		</header>
 
 		<ul class="col wfull">
@@ -26,6 +26,10 @@
 	}
 
 	header {
-		padding: 1em;
+		background-color: var(--base-700);
+		color: var(--base-400);
+		border: 1px solid var(--base-600);
+		border-radius: 1em;
+		padding: 0.5em 2em;
 	}
 </style>

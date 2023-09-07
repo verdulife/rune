@@ -1,23 +1,20 @@
 <script>
+	import { exercise_lib as lib } from '$lib/utils';
+
 	import Minus from '$components/icons/Minus.svelte';
 	import Plus from '$components/icons/Plus.svelte';
 
 	export let id, value;
-	const lib = {
-		reps: { amount: 1, unit: 'reps' },
-		series: { amount: 1, unit: 'series' },
-		weight: { amount: 5, unit: 'kg' }
-	};
 
-	const { amount, unit } = lib[id];
+	const { min, step, unit } = lib[id];
 
 	function decrease() {
-		value -= amount;
-		if (value < amount) value = amount;
+		value -= step;
+		if (value < min) value = min;
 	}
 
 	function increase() {
-		value += amount;
+		value += step;
 	}
 </script>
 

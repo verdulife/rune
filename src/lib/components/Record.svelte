@@ -7,7 +7,7 @@
 
 <article class="row jbetween acenter wfull">
 	<main class="col">
-		<h5>
+		<h5 class="clamp">
 			{record.exercise}
 		</h5>
 
@@ -39,6 +39,7 @@
 
 <style lang="postcss">
 	article {
+		gap: 1em;
 		border-bottom: 1px solid var(--base-200);
 		padding: 1em;
 		

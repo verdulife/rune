@@ -21,7 +21,7 @@
 	{:else}
 		<button class="unset col full" on:click={() => openModal(program)}>
 			<header>
-				<p>{program.exercise}</p>
+				<p class="clamp" style="--line-clamp: 4">{program.exercise}</p>
 			</header>
 
 			<main>
@@ -42,24 +42,38 @@
 		width: calc((100% - 0.8em) / 3);
 		aspect-ratio: 3/4;
 		background: linear-gradient(45deg, var(--accent), var(--accent-400));
+		word-break: break-word;
 		border-radius: 1em;
 		padding: 1.5em 1em 1em 1em;
+		overflow: hidden;
 
 		&.add {
 			background: linear-gradient(45deg, var(--base-700), var(--base-600));
+
+			& p {
+				color: var(--base);
+				margin-top: 0.25em;
+			}
 		}
 	}
 
-	main {
-		margin-top: auto;
+	button {
+		text-align: left;
 	}
 
+	main {
+		margin: auto 0 0.25em 0;
+	}
+
+	footer {
+	}
+	
 	h3 {
 		font-size: var(--font-xl);
 	}
-
-	button {
-		gap: 1em;
-		text-align: left;
+	
+	p {
+		color: var(--accent-200);
+		font-size: var(--font-sm);
 	}
 </style>
