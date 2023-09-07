@@ -8,16 +8,13 @@ function serialize(obj) {
 export function registerRecord(data) {
   if (!data) return;
 
-
   const record = serialize(data);
   record.date = new Date().toJSON();
   record.fail = record.fail || false;
 
   User.update(userDay => {
     const { day } = record;
-    let { records } = userDay[day];
-
-    records = [record, ...records];
+    userDay[day].records = [record, ...userDay[day].records];
 
     return userDay;
   });
