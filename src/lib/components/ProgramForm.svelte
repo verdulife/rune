@@ -54,7 +54,9 @@
 	<Datalist bind:value={data.exercise} />
 
 	<Incrementer id="weight" bind:value={data.weight} />
+	<hr class="wfull" />
 	<Incrementer id="reps" bind:value={data.reps} />
+	<hr class="wfull" />
 	<Incrementer id="series" bind:value={data.series} />
 
 	<footer class="row fcenter wfull">
@@ -85,6 +87,10 @@
 <style lang="postcss">
 	form {
 		gap: 2em;
+
+		& hr {
+			opacity: 0.2;
+		}
 	}
 
 	footer {

@@ -4,7 +4,7 @@
 </script>
 
 <label class="col wfull" for="exercise">
-	<p>Nombre del ejercicio</p>
+	<h3>Nombre del ejercicio</h3>
 	<input class="wfull" list="exercisesList" type="search" id="exercise" bind:value required />
 
 	<datalist id="exercisesList">
@@ -19,5 +19,9 @@
 	datalist,
 	option {
 		text-transform: uppercase;
+	}
+
+	h3 {
+		padding: 0.5em;
 	}
 </style>

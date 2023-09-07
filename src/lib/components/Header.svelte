@@ -34,14 +34,14 @@
 	section {
 		position: sticky;
 		top: 0;
-		gap: 2em;
-		background-color: hsl(var(--base-hsl), 0.5);
-		backdrop-filter: blur(1em);
-		padding: 1em;
-		padding-top: calc(var(--safe-top) + 1em);
+		background-color: var(--base);
+		border-bottom: 1px solid var(--base-200);
+		padding: 2em 1em;
+		padding-top: calc(var(--safe-top) + 2em);
 
 		@media (--dark) {
-			background-color: hsl(var(--base-900-hsl), 0.5);
+			background-color: var(--base-900);
+			border-color: var(--base-700);
 		}
 	}
 
@@ -54,6 +54,6 @@
 		font-size: var(--font-2xs);
 		font-weight: bold;
 		text-transform: uppercase;
-		padding: 0.75em 1.5em;
+		padding: 1em 1.5em;
 	}
 </style>

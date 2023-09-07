@@ -4,25 +4,21 @@
 	export let records;
 </script>
 
-<section class="col full">
-	<header class="row jbetween aend wfull">
-		<h3>Registros</h3>
-	</header>
+{#if records.length > 0}
+	<section class="col full">
+		<header class="row jbetween aend wfull">
+			<h3>Registros</h3>
+		</header>
 
-	<ul class="col wfull">
-		{#if records.length > 0}
+		<ul class="col wfull">
 			{#each records as record}
 				<li class="col wfull">
 					<Record {record} />
 				</li>
 			{/each}
-		{:else}
-			<li class="col wfull">
-				<p>No hay registros</p>
-			</li>
-		{/if}
-	</ul>
-</section>
+		</ul>
+	</section>
+{/if}
 
 <style lang="postcss">
 	section {
@@ -30,14 +26,6 @@
 	}
 
 	header {
-		padding: 1em;
-	}
-
-	ul {
-		gap: 0.4em;
-	}
-
-	li {
 		padding: 1em;
 	}
 </style>

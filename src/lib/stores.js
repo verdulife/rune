@@ -2,7 +2,7 @@ import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 import { userDefaults } from '$lib/utils';
 
-const verdu = [
+/* const verdu = [
   {
     "day": "domingo",
     "programed": [],
@@ -96,7 +96,7 @@ const verdu = [
     "programed": [],
     "records": []
   }
-];
+]; */
 
-export const User = writable((browser && JSON.parse(localStorage.getItem("User"))) || verdu);
+export const User = writable((browser && JSON.parse(localStorage.getItem("User"))) || userDefaults);
 User.subscribe((value) => browser && (localStorage.User = JSON.stringify(value)));

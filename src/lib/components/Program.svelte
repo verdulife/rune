@@ -60,5 +60,6 @@
 
 	button {
 		gap: 1em;
+		text-align: left;
 	}
 </style>

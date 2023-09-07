@@ -39,8 +39,13 @@
 
 <style lang="postcss">
 	article {
-		border-bottom: 1px solid var(--base-800);
-		padding: 1em 0;
+		border-bottom: 1px solid var(--base-200);
+		padding: 1em;
+		
+		@media (--dark) {
+			border-color: var(--base-700);
+
+		}
 	}
 
 	main > small {
