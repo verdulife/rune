@@ -21,12 +21,21 @@ export function formatDate(date) {
   return new Intl.DateTimeFormat("es-ES", options).format(valid);
 }
 
+export function parseWeight(value) {
+  return value === 0 ? "Libre" : `${value} ${exercise_lib.weight.unit}`;
+}
+
+export function parseRir(value) {
+  return value === -1 ? 'Fallo' : `${value} ${exercise_lib.rir.unit}`;
+}
+
 export const programDefaults = {
   exercise: '',
   day: 0,
   weight: 10,
   reps: 10,
   series: 4,
+  rir: 0,
   fail: false
 };
 
@@ -85,7 +94,8 @@ export const userDefaults = [
 export const exercise_lib = {
   reps: { min: 1, step: 1, unit: 'reps' },
   series: { min: 1, step: 1, unit: 'series' },
-  weight: { min: 0, step: 5, unit: 'kg' }
+  weight: { min: 0, step: 5, unit: 'kg' },
+  rir: { min: -1, step: 1, unit: 'rir' }
 }
 
 export const exercisesList = [

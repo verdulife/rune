@@ -12,6 +12,8 @@ export function registerRecord(data) {
   record.date = new Date().toJSON();
   record.fail = record.fail || false;
 
+  if (record.rir === -1) record.fail = true;
+
   User.update(userDay => {
     const { day } = record;
     userDay[day].records = [record, ...userDay[day].records];

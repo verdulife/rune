@@ -1,6 +1,5 @@
 <script>
-	import { User } from '$lib/stores';
-	import { formatDate, record_states, state_labels } from '$lib/utils';
+	import { formatDate, parseWeight, record_states, state_labels } from '$lib/utils';
 
 	export let record;
 </script>
@@ -24,14 +23,19 @@
 		<footer class="row jend">
 			{#if record.state === record_states.updated}
 				<small>
-					{record.weight}kg
+					{parseWeight(record.weight)}
 				</small>
 				<small>
-					{record.reps}r
+					{record.reps} r
 				</small>
 				<small>
-					{record.series}s
+					{record.series} s
 				</small>
+				{#if record.rir !== -1}
+					<small>
+						{record.rir || 0} rir
+					</small>
+				{/if}
 			{/if}
 		</footer>
 	</aside>
@@ -42,10 +46,9 @@
 		gap: 1em;
 		border-bottom: 1px solid var(--base-200);
 		padding: 1em;
-		
+
 		@media (--dark) {
 			border-color: var(--base-700);
-
 		}
 	}
 
@@ -55,7 +58,7 @@
 	}
 
 	footer {
-		gap: 1em;
+		gap: 0.5em;
 		font-size: var(--font-xs);
 		color: var(--base-500);
 
@@ -63,7 +66,12 @@
 			font-size: var(--font-xs);
 			font-weight: bold;
 			text-transform: uppercase;
-			border-radius: 1em;
+			border-left: 1px solid var(--base-400);
+			padding-left: 0.5em;
+
+			&:first-of-type {
+				border: none;
+			}
 		}
 	}
 </style>

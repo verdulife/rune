@@ -59,6 +59,11 @@
 	<hr class="wfull" />
 	<Incrementer id="series" bind:value={data.series} />
 
+	{#if data.id}
+		<hr class="wfull" />
+		<Incrementer id="rir" bind:value={data.rir} />
+	{/if}
+
 	<footer class="row fcenter wfull">
 		<button type="submit" class="unset col acenter grow">
 			<Save />
@@ -66,10 +71,10 @@
 		</button>
 
 		{#if data.id}
-			<button type="button" class="unset col acenter grow" on:click={registerFail}>
+			<!-- <button type="button" class="unset col acenter grow" on:click={registerFail}>
 				<Alert />
 				<small>FALLO</small>
-			</button>
+			</button> -->
 
 			<button type="button" class="unset col acenter grow" on:click={deleteExercise}>
 				<Trash />
@@ -101,11 +106,11 @@
 		@media (--dark) {
 			background-color: var(--base-700);
 		}
-		
+
 		& button {
 			gap: 0.5em;
 			color: var(--base-900);
-			
+
 			@media (--dark) {
 				color: var(--base);
 			}

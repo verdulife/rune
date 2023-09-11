@@ -1,5 +1,6 @@
 <script>
 	import Add from '$components/icons/Add.svelte';
+	import { parseWeight } from '$lib/utils';
 
 	export let program = null;
 	export let showModal = null;
@@ -26,7 +27,7 @@
 
 			<main>
 				<h3>
-					<strong>{program.weight}kg</strong>
+					<strong>{parseWeight(program.weight)}</strong>
 				</h3>
 			</main>
 
