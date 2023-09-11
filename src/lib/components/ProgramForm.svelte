@@ -94,12 +94,21 @@
 	}
 
 	footer {
-		background-color: var(--base-700);
+		background-color: var(--base-100);
 		border-radius: 1em;
 		padding: 1em;
 
+		@media (--dark) {
+			background-color: var(--base-700);
+		}
+		
 		& button {
 			gap: 0.5em;
+			color: var(--base-900);
+			
+			@media (--dark) {
+				color: var(--base);
+			}
 		}
 	}
 </style>

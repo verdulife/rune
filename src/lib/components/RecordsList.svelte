@@ -26,10 +26,16 @@
 	}
 
 	header {
-		background-color: var(--base-700);
+		background-color: var(--base-100);
 		color: var(--base-400);
-		border: 1px solid var(--base-600);
+		border: 1px solid var(--base-200);
 		border-radius: 1em;
 		padding: 0.5em 2em;
+
+		@media (--dark) {
+			background-color: var(--base-700);
+			color: var(--base-400);
+			border: 1px solid var(--base-600);
+		}
 	}
 </style>

@@ -3,7 +3,7 @@
 	export let programed, showModal;
 </script>
 
-<section class="col wfull">
+<section class="col acenter wfull">
 	<main class="row wrap wfull">
 		{#if programed.length > 0}
 			{#each programed as program}
@@ -17,6 +17,7 @@
 
 <style lang="postcss">
 	section {
+		gap: 1em;
 		padding: 1em 0;
 	}
 

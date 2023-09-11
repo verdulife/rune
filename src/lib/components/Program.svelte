@@ -48,7 +48,11 @@
 		overflow: hidden;
 
 		&.add {
-			background: linear-gradient(45deg, var(--base-700), var(--base-600));
+			background: linear-gradient(45deg, var(--base-300), var(--base-200));
+
+			@media (--dark) {
+				background: linear-gradient(45deg, var(--base-700), var(--base-600));
+			}
 
 			& p {
 				color: var(--base);
@@ -67,11 +71,11 @@
 
 	footer {
 	}
-	
+
 	h3 {
 		font-size: var(--font-xl);
 	}
-	
+
 	p {
 		color: var(--accent-200);
 		font-size: var(--font-sm);

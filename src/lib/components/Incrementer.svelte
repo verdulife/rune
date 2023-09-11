@@ -29,3 +29,13 @@
 		<Plus />
 	</button>
 </label>
+
+<style lang="postcss">
+	button {
+		color: var(--base-900);
+
+		@media (--dark) {
+			color: var(--base);
+		}
+	}
+</style>
