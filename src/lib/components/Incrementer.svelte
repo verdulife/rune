@@ -6,7 +6,7 @@
 
 	export let id, value;
 
-	const { min, step, unit } = lib[id];
+	const { min, step, unit, max } = lib[id];
 	value = value || 0;
 
 	function decrease() {
@@ -16,6 +16,7 @@
 
 	function increase() {
 		value += step;
+		if (value > max) value = max;
 	}
 </script>
 

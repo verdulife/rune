@@ -92,10 +92,10 @@ export const userDefaults = [
 ];
 
 export const exercise_lib = {
-  reps: { min: 1, step: 1, unit: 'reps' },
-  series: { min: 1, step: 1, unit: 'series' },
-  weight: { min: 0, step: 5, unit: 'kg' },
-  rir: { min: -1, step: 1, unit: 'rir' }
+  reps: { min: 1, step: 1, unit: 'reps', max: 50 },
+  series: { min: 1, step: 1, unit: 'series', max: 20 },
+  weight: { min: 0, step: 5, unit: 'kg', max: 500 },
+  rir: { min: -1, step: 1, unit: 'rir', max: 4 }
 }
 
 export const exercisesList = [
