@@ -8,6 +8,7 @@
 	import ProgramList from '$components/ProgramList.svelte';
 	import RecordsList from '$components/RecordsList.svelte';
 	import Modal from '$components/Modal.svelte';
+	import Training from '$components/Training.svelte';
 	/* import Nav from '$components/Nav.svelte'; */
 
 	export let data;
@@ -17,6 +18,7 @@
 	$: userDay = $User[displayDay];
 	$: ({ programed, records } = userDay);
 	$: showModal = null;
+	$: training = false;
 </script>
 
 <Meta {metadata} {origin} />
@@ -24,13 +26,19 @@
 <Header bind:displayDay />
 
 <main class="col full">
-	<ProgramList {programed} bind:showModal />
+	<ProgramList {programed} bind:showModal bind:training />
 	<RecordsList {records} />
 </main>
 
 <!-- <Nav /> -->
 
-<Modal {displayDay} bind:showModal />
+{#if showModal}
+	<Modal {displayDay} bind:showModal />
+{/if}
+
+{#if training}
+	<Training {displayDay} bind:training />
+{/if}
 
 <style lang="postcss">
 	main {

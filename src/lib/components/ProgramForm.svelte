@@ -1,17 +1,11 @@
 <script>
 	import { programDefaults, record_states } from '$lib/utils';
-	import {
-		createProgramByDay,
-		updateProgramByData,
-		deleteProgramByData,
-		registerRecord
-	} from '$lib/methods';
+	import { createProgramByDay, updateProgramByData, deleteProgramByData } from '$lib/methods';
 
 	import Incrementer from '$components/Incrementer.svelte';
 	import Datalist from '$components/Datalist.svelte';
 	import Trash from '$components/icons/Trash.svelte';
 	import Save from '$components/icons/Save.svelte';
-	import Alert from '$components/icons/Alert.svelte';
 	import Back from '$components/icons/Back.svelte';
 
 	export let displayDay, showModal;
@@ -37,17 +31,6 @@
 		deleteProgramByData(data);
 		closeModal();
 	}
-
-	function registerFail() {
-		const check = confirm('¿Quieres registrar fallo en este ejercicio?');
-		if (!check) return;
-
-		data.fail = true;
-		data.state = record_states.updated;
-
-		registerRecord(data);
-		closeModal();
-	}
 </script>
 
 <form class="col acenter wfull" on:submit|preventDefault={saveExercise}>
@@ -71,11 +54,6 @@
 		</button>
 
 		{#if data.id}
-			<!-- <button type="button" class="unset col acenter grow" on:click={registerFail}>
-				<Alert />
-				<small>FALLO</small>
-			</button> -->
-
 			<button type="button" class="unset col acenter grow" on:click={deleteExercise}>
 				<Trash />
 				<small>BORRAR</small>

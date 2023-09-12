@@ -1,6 +1,10 @@
 <script>
 	import Program from '$components/Program.svelte';
-	export let programed, showModal;
+	export let programed, showModal, training;
+
+	function startTraining() {
+		training = true;
+	}
 </script>
 
 <section class="col acenter wfull">
@@ -13,6 +17,10 @@
 
 		<Program bind:showModal />
 	</main>
+
+	{#if programed.length > 0}
+		<button class="wfull" on:click={startTraining}>INICIAR ENTRENO</button>
+	{/if}
 </section>
 
 <style lang="postcss">

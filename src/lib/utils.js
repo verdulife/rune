@@ -12,9 +12,9 @@ export const days = [
 
 export function formatDate(date) {
   const options = {
-    weekday: "short",
     month: "short",
     day: "numeric",
+    year: "numeric"
   };
 
   const valid = new Date(date);
