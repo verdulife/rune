@@ -1,5 +1,5 @@
 <script>
-	import { days } from '$lib/utils';
+	import { days } from '$lib/libs';
 
 	export let displayDay;
 

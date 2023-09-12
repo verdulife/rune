@@ -1,8 +1,8 @@
 import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
-import { userDefaults } from '$lib/utils';
+import { userDefaults, recordDefaults } from '$lib/defaults';
 
-/* const verdu = [
+/* const mock_data = [
   {
     "day": "domingo",
     "programed": [],
@@ -100,3 +100,6 @@ import { userDefaults } from '$lib/utils';
 
 export const User = writable((browser && JSON.parse(localStorage.getItem("User"))) || userDefaults);
 User.subscribe((value) => browser && (localStorage.User = JSON.stringify(value)));
+
+/* export const Records = writable((browser && JSON.parse(localStorage.getItem("Records"))) || recordDefaults);
+Records.subscribe((value) => browser && (localStorage.Records = JSON.stringify(value))); */

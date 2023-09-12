@@ -1,5 +1,6 @@
 <script>
-	import { exercise_lib, formatDate, parseRir, parseWeight } from '$lib/utils';
+	import { exercise_lib } from '$lib/libs';
+	import { formatDate, parseRir, parseWeight } from '$lib/utils';
 
 	export let record;
 </script>

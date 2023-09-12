@@ -1,0 +1,12 @@
+export const exercisesList = [
+  "PESO MUERTO",
+  "FEMORAL TUMBADO",
+  "YUGO",
+  "PRESS DE BANCA",
+  "JALON AL PECHO",
+  "PRESS MAQUINA",
+  "GIRONDA",
+  "EXTENSIONES CUADRICEPS",
+  "PRENSA",
+  "SENTADILLA LIBRE"
+]

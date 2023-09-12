@@ -2,6 +2,8 @@
 	import { User } from '$lib/stores';
 	import { currentDay } from '$lib/utils';
 	import { metadata } from '$lib/metadata';
+	import { browser } from '$app/environment';
+	import { fade } from 'svelte/transition';
 
 	import Meta from '$components/Meta.svelte';
 	import Header from '$components/Header.svelte';
@@ -19,6 +21,61 @@
 	$: ({ programed, records } = userDay);
 	$: showModal = null;
 	$: training = false;
+	let screensaver = false;
+	let wakeLock = null;
+
+	function runScreensaver() {
+		setTimeout(() => {
+			if (wakeLock) screensaver = true;
+		}, 10000);
+	}
+
+	function resetScreensaver() {
+		screensaver = false;
+		runScreensaver();
+	}
+
+	async function awakeOn() {
+		if (!'wakeLock' in navigator) return;
+
+		try {
+			wakeLock = await navigator.wakeLock.request('screen');
+			runScreensaver();
+
+			console.log('awake is on');
+		} catch (err) {
+			console.log(err);
+		}
+
+		wakeLock.addEventListener('release', () => {
+			wakeLock = null;
+			console.log('awake is off');
+		});
+
+		document.addEventListener('visibilitychange', async () => {
+			if (document.visibilityState === 'visible') {
+				wakeLock = await navigator.wakeLock.request('screen');
+				console.log('awake is on');
+			}
+		});
+	}
+
+	async function awakeOff() {
+		if (!'wakeLock' in navigator || !wakeLock) return;
+
+		try {
+			await wakeLock.release();
+			wakeLock = null;
+			console.log('awake is off');
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
+	$: if (browser) {
+		if (browser && training) awakeOn();
+		else awakeOff();
+	}
 </script>
 
 <Meta {metadata} {origin} />
@@ -40,8 +97,18 @@
 	<Training {displayDay} bind:training />
 {/if}
 
+{#if screensaver}
+	<button class="screensaver unset" on:click={resetScreensaver} transition:fade />
+{/if}
+
 <style lang="postcss">
 	main {
 		gap: 2em;
+	}
+
+	.screensaver {
+		position: fixed;
+		inset: 0;
+		background-color: hsl(var(--base-900-hsl), 0.7) !important;
 	}
 </style>

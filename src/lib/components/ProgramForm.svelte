@@ -1,5 +1,6 @@
 <script>
-	import { programDefaults, record_states } from '$lib/utils';
+	import { programDefaults } from '$lib/defaults';
+	import { record_states } from '$lib/libs';
 	import { createProgramByDay, updateProgramByData, deleteProgramByData } from '$lib/methods';
 
 	import Incrementer from '$components/Incrementer.svelte';

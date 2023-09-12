@@ -1,5 +1,5 @@
 <script>
-	import { exercisesList } from '$lib/utils';
+	import { exercisesList } from '$lib/exercises';
 	export let value;
 </script>
 

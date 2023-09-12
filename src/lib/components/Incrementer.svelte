@@ -1,5 +1,6 @@
 <script>
-	import { exercise_lib as lib, parseRir, parseWeight } from '$lib/utils';
+	import { exercise_lib as lib } from '$lib/libs';
+	import { parseRir, parseWeight } from '$lib/utils';
 
 	import Minus from '$components/icons/Minus.svelte';
 	import Plus from '$components/icons/Plus.svelte';
