@@ -98,7 +98,7 @@
 {/if}
 
 {#if screensaver}
-	<button class="screensaver unset" on:click={resetScreensaver} transition:fade />
+	<button class="screensaver unset row full" on:click={resetScreensaver} transition:fade />
 {/if}
 
 <style lang="postcss">
