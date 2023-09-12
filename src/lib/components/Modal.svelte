@@ -9,7 +9,7 @@
 	}
 </script>
 
-<button class="outer unset" on:click={closeModal} />
+<button class="outer unset full" on:click={closeModal} />
 <div class="modal wfull" transition:slide>
 	<ProgramForm {displayDay} bind:showModal />
 </div>

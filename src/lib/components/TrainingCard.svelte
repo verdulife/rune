@@ -1,5 +1,6 @@
 <script>
 	import { parseWeight } from '$lib/utils';
+	import TrainingSerie from './TrainingSerie.svelte';
 
 	export let program, done;
 	let checks = [];
@@ -26,13 +27,8 @@
 
 	<footer class="row jbetween wfull">
 		{#if !allChecked}
-			{#each checks as check, i}
-				<label class="col acenter grow" for={`${program.exercise}_${i + 1}`}>
-					<input type="checkbox" id={`${program.exercise}_${i + 1}`} bind:checked={check} hidden />
-
-					<h4><b>{i + 1}</b></h4>
-					<small>SERIE</small>
-				</label>
+			{#each checks as check, index}
+				<TrainingSerie exercise={program.exercise} bind:check {index} />
 			{/each}
 		{:else}
 			<span class="row jcenter wfull">
@@ -66,17 +62,6 @@
 
 	footer {
 		gap: 0.5em;
-	}
-
-	label {
-		color: var(--base);
-		border: 1px solid var(--accent-200);
-		border-radius: 1em;
-		padding: 1em;
-
-		&:has(input:checked) {
-			background-color: var(--accent-200);
-		}
 	}
 
 	span {
